@@ -116,5 +116,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "react-hot-loader": "^4.8.0"
   }
 }

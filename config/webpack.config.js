@@ -372,6 +372,7 @@ module.exports = function(webpackEnv) {
                   ],
                 ],
                 cacheDirectory: true,
+                plugins: ['react-hot-loader/babel'],
                 cacheCompression: isEnvProduction,
                 
                 // If an error happens in a package, it's possible to be
