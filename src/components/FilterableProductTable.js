@@ -107,7 +107,7 @@ export default class FilterableProductTable extends React.Component {
     this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
     this.handleInStockInput = this.handleInStockInput.bind(this);
   }
-
+// 由于 state 只能由拥有它们的组件进行更改 FilterableProductTable 必须将一个能够触发 state 改变的回调函数（callback）传递给 SearchBar。
   handleFilterTextInput(filterText) {
     this.setState({
       filterText: filterText

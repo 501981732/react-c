@@ -24,7 +24,7 @@ export default class Reservation extends React.Component {
     return (
       <form>
         <label>
-          Is going:
+          参与:
           <input
             name="isGoing"
             type="checkbox"
@@ -33,7 +33,7 @@ export default class Reservation extends React.Component {
         </label>
         <br />
         <label>
-          Number of guests:
+          来宾人数:
           <input
             name="numberOfGuests"
             type="number"

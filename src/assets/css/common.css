@@ -1,0 +1,47 @@
+/*//公共样式文件，class或id命名必须以c-为前缀开头*/
+
+.clearfix:after,
+.clear:before {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    content: ".";
+}
+
+.clearfix {
+    /*// overflow: auto;*/
+    zoom: 1;
+}
+
+[clearfix]:after,
+[clear]:before {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    content: ".";
+}
+
+[clearfix] {
+    /*// overflow: auto;*/
+    zoom: 1;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+/*// 垂直居中*/
+.center_table {
+    display: table;
+}
+
+.center_cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}

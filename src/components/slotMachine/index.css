@@ -1,0 +1,44 @@
+:root {
+    --itemHeight:120px;
+    --itemMargin: 5px;
+    --slotMachimeWidth: 250px;
+    --slotDuration: 5s;
+}
+.slotmachine-container {
+    width: var(--slotMachimeWidth);
+    border: 1px solid gray;
+    & .slotmachine-box {
+        height: var(--itemHeight);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    & .slotmachine-item {
+        height: var(--itemHeight);
+        margin: 0 var(--itemMargin);
+        flex: 1;
+        box-sizing: border-box;
+        overflow: hidden;
+        & .item-image-box {
+            --slotTranslateY: 0;
+            --slotDelay:0s;
+            font-size: 0;
+            height: 100%;
+            width: 100%;
+            transform: translateY(var(--slotTranslateY));
+            transition:  transform var(--slotDuration) cubic-bezier(.72,-0.04,.43,1.14) var(--slotDelay);
+        }
+        & img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+.slotmachine-btn {
+    display: inline-block;
+    color:  hwb(120 44% 50%);
+    border: 1px solid greenyellow;
+    padding: 5px 10px;
+    border-radius: 20%;
+
+}

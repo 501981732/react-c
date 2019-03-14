@@ -16,7 +16,7 @@ export default class Toggle extends React.Component {
         // }
         // 绑定this
         handleClick = (arg,e)=>{
-            // 时间对象额要放到后面
+            // 事件要放到后面
             console.log(arg)
             this.setState((prevState, props) => ({
                 isToggleOn: !prevState.isToggleOn

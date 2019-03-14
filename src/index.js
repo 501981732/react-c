@@ -1,14 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Route from '@/route/';
+import Route from '@/router/';
 
 import {AppContainer} from 'react-hot-loader'
 
 import '@/assets/css/reset.css';
+import '@/assets/css/common.css';
 
 import * as serviceWorker from './serviceWorker';
 
-// ReactDOM.render(<Route />, document.getElementById('root'));
+// const Index = lazy(() => import('@/pages/index/'));
+
+// const App = () => (
+//   <Router>
+//     <Suspense fallback={<div>Loading...</div>}>
+//       <Switch>
+//         <Route exact path="/" component={Index}/>
+//       </Switch>
+//     </Suspense>
+//   </Router>
+// );
+// ReactDOM.render(<App />, document.getElementById('root'));
 
 const render = Components => {
     ReactDOM.render(

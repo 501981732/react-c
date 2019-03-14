@@ -1,0 +1,27 @@
+.jiugongge-container {
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+/*    display: grid;
+    grid-template-columns: repeat(3,33%);
+    grid-template-rows: repeat(3,33%);
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;*/
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.jiugongge-item {
+    width: 30%;
+    height: 30%;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jiugongge-item-active {
+    opacity: .6;
+}
+

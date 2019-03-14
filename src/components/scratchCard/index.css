@@ -1,0 +1,12 @@
+.scratch-container {
+    height: 100px;
+    width: 200px;
+    border: 1px solid gray;
+    position: relative;
+    & #mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+}

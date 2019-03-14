@@ -91,11 +91,13 @@ module.exports = function(webpackEnv) {
           ident: 'postcss',
           plugins: () => [
             require('postcss-flexbugs-fixes'),
+            require('postcss-import'),
+            require('postcss-url'),
             require('postcss-preset-env')({
               autoprefixer: {
                 flexbox: 'no-2009',
               },
-              stage: 3,
+              stage: 0,
             }),
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
@@ -261,10 +263,17 @@ module.exports = function(webpackEnv) {
       extensions: paths.moduleFileExtensions
         .map(ext => `.${ext}`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
+        // extensions: [
+        //     '.jsx',
+        //     '.ts',
+        //     '.js',
+        //     '.css'
+        // ],
       alias: {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
+        '@': path.resolve('src')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

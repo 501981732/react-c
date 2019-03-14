@@ -21,15 +21,15 @@ export default class FlavorForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Pick your favorite La Croix flavor:
+          你最喜欢哪个:
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Node">Node</option>
           </select>
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="提交" />
       </form>
     );
   }

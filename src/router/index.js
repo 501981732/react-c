@@ -1,19 +1,24 @@
-import React, { Components } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 
-import index from '@/pages/index'
-import about from '@/pages/about'
+import Index from '@/pages/index'
+// import About from '@/pages/about/about'
 
-// react-router4 不再推荐将所有路由规则放在同一个地方集中式路由，子路由应该由父组件动态配置，组件在哪里匹配就在哪里渲染，更加灵活
-export default class RouteConfig extends Components {
+// https://github.com/ReactTraining/react-router/issues/6420
+
+const About = lazy(() => import('@/pages/about/about'))
+
+export default class RouteConfig extends Component {
     render() {
         return (
             <HashRouter>
-                <Switch>
-                    <Route path='/' exact component = {index} />
-                    <Route path='/about' exact component = {about} />
-                    <Redirect to='/' />
-                </Switch>
+                <Suspense fallback ={<div>loading...</div>}>
+                    <Switch>
+                        <Route path='/' exact component = {Index} />
+                        <Route path='/about' component={props => <About {...props} />} />
+                        <Redirect to='/' />
+                    </Switch>
+                </Suspense>
             </HashRouter>
         )
     }

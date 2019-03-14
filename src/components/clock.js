@@ -9,18 +9,21 @@ class Clock extends React.Component {
             counter: 1000
         }
     }
+    static defaultProps = {
+        title: '现在时间'
+    }
     componentDidMount() {
         this.timerID = setInterval(_=>this.tick(),1000)
     }
 
     componentWillUnmount() {
-        clearInterval(this.timerID) 
+        clearInterval(this.timerID)
     }
 
     render() {
         return (
             <div>
-                <h1>hello clock</h1>
+                <h1>{this.props.title}</h1>
                 <FormattedDate date={this.state.date}></FormattedDate>
                 <p>{this.state.counter}</p>
             </div>

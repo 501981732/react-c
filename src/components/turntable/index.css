@@ -1,0 +1,31 @@
+.turntable-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    & .turntable-box {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        & img {
+            height: 100%;
+            width: 100%;
+        }
+/*        &:hover{
+            transform: rotate(1turn);
+        }*/
+    }
+    & .turntable-btn {
+        width: 80px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+        & img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
