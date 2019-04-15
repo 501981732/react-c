@@ -96,7 +96,7 @@ class App extends Component {
             // resultArr: [4, 5, 6,6], //结果 需异步返回
             duration: 8, // 持续时间
             delay: .2, //每个的延迟时间
-            // unitHeight: 87.5,
+            unitHeight: 87.5,
         },
         // 转盘配置参数
         turnConfig: {
@@ -152,7 +152,7 @@ class App extends Component {
         return new Promise((reslove, reject) => {
             setTimeout(function () {
                 reslove({
-                    resultArr: [2, 4, 7, ],
+                    resultArr: [2, 4, 7, 9],
                     error: false
                 })
             }, 300)

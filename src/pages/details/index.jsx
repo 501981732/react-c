@@ -25,7 +25,6 @@ const styles = {
     top: 0,
     width: '100vw',
     height: '100vh',
-    padding: '0 20px',
     backgroundColor: '#80D4AC'
   },
   titleText: {

@@ -45,7 +45,7 @@ export default class SlotMachine extends React.Component {
         let itemHeight = Dom[0].firstChild.getBoundingClientRect().height //每个图片高度
         let unitHeight = this.config.unitHeight || itemHeight / this.config.awardNumber //每个图片每个奖品的高度
         // 根据图片自适应高度，调整单位高度
-        !this.config.unitHeight && setTimeout(() => {document.body.style.setProperty('--itemHeight', unitHeight + 'px')},10)
+         setTimeout(() => {document.body.style.setProperty('--itemHeight', unitHeight + 'px')},10)
     }
     async start(e) {
         if (this.state.isRunning) return
