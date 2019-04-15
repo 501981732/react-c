@@ -1,8 +1,10 @@
 .scratch-container {
-    height: 100px;
-    width: 200px;
-    border: 1px solid gray;
+    --scratchWidth: 200px;
+    --scratchHeight: 100px;
+    height: var(--scratchHeight);
+    width: var(--scratchWidth);
     position: relative;
+    border: 1px solid gray;
     & #mask{
         position: absolute;
         top: 0;

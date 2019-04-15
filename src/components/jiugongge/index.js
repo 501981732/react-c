@@ -35,10 +35,10 @@ export default class Jiugongge extends React.Component {
             this.init()
             let _this = this,
                 t = _this.state.t,
-                i = _this.state.activeId,
+                i = _this.state.activeId,//初始中奖ID
                 length = _this.state.activeList.length,
-                step = _this.state.round * length,
-                timer = setTimeout(start.call(this), t);
+                step = _this.state.round * length, //一共几周*总奖品数
+                timer = setTimeout(start.call(_this), t);
 
             function start() {
                 _this.setState({

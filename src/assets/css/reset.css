@@ -108,7 +108,7 @@ section {
 }
 
 body {
-    line-height: 1;
+    /*line-height: 1;*/
     /*line-height: normal;*/
     -webkit-text-size-adjust: none;
     min-height: 100%;

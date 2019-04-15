@@ -7,7 +7,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    background: rebeccapurple;
+
 }
 .card-mask {
     position: absolute;
@@ -29,4 +31,12 @@
     text-align: center;
     font-size: 26px;
     margin: 20px;
+}
+.App {
+    background: rebeccapurple;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
 }

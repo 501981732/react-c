@@ -16,6 +16,27 @@ import ScratchCard from '@/components/scratchCard/'
 import SlotMachine from '@/components/slotMachine/'
 import { Link } from 'react-router-dom'
 
+const styles = {
+    container: {
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      width: '100vw',
+      height: '100vh',
+      padding: '0 20px',
+      backgroundColor: '#F4C272'
+    },
+    titleText: {
+      paddingTop: 20,
+      textAlign: 'center'
+    },
+    btnGroup: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginTop: 20
+    }
+  }
 class App extends Component {
     constructor() {
         super()
@@ -23,14 +44,12 @@ class App extends Component {
             numbers: [1, 2, 3, 4, 5, 6, 7],
             showScratchCard: true,
             ScratchCard: null,
-            // turnConfig: {
-            //     total: 8,
-            //     awardid: 3,
-            //     maxTurn: 8,
-            //     duration: 5
-            // }
         }
         this.cardRef = React.createRef();
+    }
+    componentDidMount() {
+        console.log(this.props.history)
+
     }
     static defaultProps = {
         jiugonggeConfig: {
@@ -76,12 +95,13 @@ class App extends Component {
             maxTurn: 10, //一共几转
             // resultArr: [4, 5, 6,6], //结果 需异步返回
             duration: 8, // 持续时间
-            unitHeight: 87.5
+            delay: .2, //每个的延迟时间
+            // unitHeight: 87.5,
         },
         // 转盘配置参数
         turnConfig: {
             total: 8, //一共奖品数量
-            // awardid: 3, //需异步返回
+            // awardid: 3, //需异步返回中奖编号
             maxTurn: 8, //转的圈数
             duration: 5 //持续时间
         }
@@ -132,7 +152,7 @@ class App extends Component {
         return new Promise((reslove, reject) => {
             setTimeout(function () {
                 reslove({
-                    resultArr: [2, 5, 7, 7],
+                    resultArr: [2, 4, 7, ],
                     error: false
                 })
             }, 300)
@@ -155,14 +175,25 @@ class App extends Component {
             this.cardRef.current.init()
         }, 500)
     }
-
+    goToPage(pathname) {
+        this.props.history.push({pathname});
+    }
+    goToAboutPage = () => {
+        this.goToPage('/about');
+      }
+    
+    goToListPage = () => {
+        this.goToPage('/list');
+    }
     render() {
         return (
-            <div>
+            <div style={styles.container}>
                 <div className="App">
                     <div className='app-router'>
-                        <Link to='/'>index</Link>
-                        <Link to='/about'>关于</Link>
+                        {/* <Link to='/'>index</Link> */}
+                        {/* <Link to='/about'>关于</Link> */}
+                        <div onClick={this.goToAboutPage}>about</div>
+                        <div onClick={this.goToListPage}>list</div>
                     </div>
                     <header className="App-header">
                         <img src={logo} className="App-logo" alt="logo" width='200px' />
@@ -197,6 +228,7 @@ class App extends Component {
                         handleSuccess={this.handleSuccess}
                     >
                     </Turntable>
+
                     <h2 className='title'>刮刮乐</h2>
 
                     {/*刮一刮*/}
@@ -227,7 +259,6 @@ class App extends Component {
                         requestID={this.requestSlotID}
                     >
                         <img src={require('./../../assets/img/num.png')} alt='' />
-                        <div>222</div>
                     </SlotMachine>
 
 

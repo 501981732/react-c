@@ -11,6 +11,7 @@ export default class SlotMachine extends React.Component {
             maxTurn: 10,
             // resultArr: [4,5,6],
             duration: 8,
+            delay: .5,
             // unitHeight: 87.5
         }
         this.config = Object.assign(config, this.props.config)
@@ -40,11 +41,11 @@ export default class SlotMachine extends React.Component {
                 this.props.handleSuccess()
             }, 300)
         });
-
+        console.log(this.props.children)
         let itemHeight = Dom[0].firstChild.getBoundingClientRect().height //每个图片高度
         let unitHeight = this.config.unitHeight || itemHeight / this.config.awardNumber //每个图片每个奖品的高度
         // 根据图片自适应高度，调整单位高度
-        document.body.style.setProperty('--itemHeight', unitHeight + 'px')
+        !this.config.unitHeight && setTimeout(() => {document.body.style.setProperty('--itemHeight', unitHeight + 'px')},10)
     }
     async start(e) {
         if (this.state.isRunning) return
@@ -66,7 +67,7 @@ export default class SlotMachine extends React.Component {
         resultArr.forEach((item, index) => {
             itemArr[index].style.setProperty('--slotTranslateY', -(unitHeight * (item - 1) + itemHeight * (this.config.maxTurn - 1)) + 'px')
             itemArr[index].style.setProperty('--slotDuration', this.config.duration + 's')
-            itemArr[index].style.setProperty('--slotDelay', index * .5 + 's')
+            itemArr[index].style.setProperty('--slotDelay', index * this.config.delay + 's')
         })
 
     }

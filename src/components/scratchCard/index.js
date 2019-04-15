@@ -24,6 +24,7 @@ export default class ScratchCard extends React.Component {
         this.init(operationByMyself)
         canvas.addEventListener('touchmove', this.handleTouchMove.bind(this, { canvas, context}), { passive: false })
     }
+    // 父组件调用则重新绘制canvas
     init(flag) {
         const canvas = document.getElementById('mask')
         const context = canvas.getContext('2d')
@@ -36,14 +37,12 @@ export default class ScratchCard extends React.Component {
             context.globalCompositeOperation = 'destination-over'
             context.fillStyle = this.config.color //填充
             context.fillRect(0, 0, this.config.width, this.config.height)
-            setTimeout(function() {
+            // setTimeout(function() {
                 context.globalCompositeOperation = 'destination-out'
-                console.log(context.globalCompositeOperation)
-            },1000)
+            // },0)
         }
-    }    handleTouchStart() {
-
     }
+
     handleTouchMove() {
         const [{ canvas, context }, e] = arguments
         const { top, left } = canvas.getBoundingClientRect()
